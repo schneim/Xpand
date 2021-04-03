@@ -1,0 +1,28 @@
+{
+    "name": "Xpand",
+    "displayName": "Xpand",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "Xpand",
+            "aliases": ["Xpand", "Xpand"],
+            "extensions": [".xpd",".xpand"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "Xpand",
+            "scopeName": "source.Xpand",
+            "path": "./syntaxes/Xpand.tmLanguage.json",
+            "embeddedLanguages": {
+                "source.c": "c"
+            }
+        }]
+    }
+}

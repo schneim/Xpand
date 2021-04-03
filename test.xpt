@@ -1,0 +1,34 @@
+«IMPORT meta::model»
+«EXTENSION my::ExtensionFile»
+
+«DEFINE javaClass FOR Entity»
+    «FILE fileName()»
+    «EXPAND TemplateFile::definitionName FOR myModelElement»
+    
+        #include <stdio.h>
+        #include "headerfile.h"
+        
+		bool myFunction(int argument) {
+			
+			int a = 0;
+			a = argument; // assign argument
+			
+			return true;
+		}
+
+    
+    «FOREACH {'A','B','C'} AS c ITERATOR iter SEPARATOR ','»
+        «iter.counter1» : «c»
+    «ENDFOREACH»
+        
+    «LET packageName + "." + className AS fqn» 
+        the fully qualified name is: «fqn»;
+    «ENDLET»    
+    «ERROR expression» 
+    «REM»
+             text comment
+    «ENDREM»    
+    
+        
+    «ENDFILE»
+«ENDDEFINE»

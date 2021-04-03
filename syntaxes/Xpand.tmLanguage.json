@@ -1,0 +1,191 @@
+{
+    "fileTypes": [
+        "xpd",
+        "xpand"
+    ],
+    "name": "Xpand",
+    "patterns": [
+        {
+            "include": "#main"
+        }
+    ],
+    "scopeName": "source.Xpand",
+    "uuid": "",
+    "repository": {
+        "main": {
+            "patterns": [
+                {
+                    "include": "#comment.block"
+                },
+                {
+                    "begin": "(\\\u00ab)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#main__1"
+                        }
+                    ],
+                    "end": "(\\\u00bb)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    }
+                },
+                {
+                    "include": "source.c"
+                }
+            ]
+        },
+        "comment.block": {
+            "patterns": [
+                {
+                    "begin": "(\u00abREM\u00bb)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "comment.Xpand"
+                        }
+                    },
+                    "contentName": "comment.Xpand",
+                    "end": "(\u00abENDREM\u00bb)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "comment.Xpand"
+                        }
+                    }
+                }
+            ]
+        },
+        "comment.block__1": {
+            "patterns": []
+        },
+        "keyword.control": {
+            "patterns": [
+                {
+                    "match": "(FOREACH|AS|ITERATOR|SEPARATOR|ENDFOREACH)",
+                    "name": "keyword.control.Xpand"
+                }
+            ]
+        },
+        "keyword.operator": {
+            "patterns": [
+                {
+                    "match": "(IMPORT|EXTENSION|DEFINE|FILE|ENDFILE|ENDDEFINE|FOR|EXPAND|LET|ENDLET|ERROR|\\+)",
+                    "name": "keyword.operator.Xpand"
+                }
+            ]
+        },
+        "main__1": {
+            "patterns": [
+                {
+                    "include": "#keyword.control"
+                },
+                {
+                    "include": "#keyword.operator"
+                },
+                {
+                    "begin": "(\\\")",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    },
+                    "contentName": "text.Xpand",
+                    "end": "(\\\")",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    }
+                },
+                {
+                    "begin": "(\\')",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    },
+                    "contentName": "text.Xpand",
+                    "end": "(\\')",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    }
+                },
+                {
+                    "begin": "(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#main__4"
+                        }
+                    ],
+                    "end": "(\\))",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    }
+                },
+                {
+                    "begin": "(\\{)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#main__5"
+                        }
+                    ],
+                    "end": "(\\})",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.Xpand"
+                        }
+                    }
+                },
+                {
+                    "match": "(\\b[a-zA-Z][a-z0-9\\x{003a}.\\x{002b}A-Z]*)",
+                    "name": "variable.Xpand"
+                },
+                {
+                    "match": "([^\\s])",
+                    "name": "invalid.Xpand"
+                }
+            ]
+        },
+        "main__2": {
+            "patterns": []
+        },
+        "main__3": {
+            "patterns": []
+        },
+        "main__4": {
+            "patterns": [
+                {
+                    "match": "(,)",
+                    "name": "punctuation.Xpand"
+                }
+            ]
+        },
+        "main__5": {
+            "patterns": [
+                {
+                    "match": "(,)",
+                    "name": "punctuation.Xpand"
+                }
+            ]
+        }
+    }
+}
