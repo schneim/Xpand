@@ -3,6 +3,7 @@
     "displayName": "Xpand",
     "description": "",
     "version": "0.0.1",
+    "publisher": "MarkusSchneider",
     "engines": {
         "vscode": "^1.55.0"
     },
